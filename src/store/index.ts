@@ -4,7 +4,7 @@ import cafeSlice from "./slice/cafeSlice";
 
 const store = configureStore({
     reducer: {
-        random: memberSlice.reducer,
+        member: memberSlice.reducer,
         cafe: cafeSlice.reducer
     }
 })
