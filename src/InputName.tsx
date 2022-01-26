@@ -1,20 +1,21 @@
 import React from 'react';
 import { useInput } from "./cutomHook";
+import {IMemberInfo} from "./store/slice/memberSlice";
 
 interface IProps {
-    value: string;
+    info: IMemberInfo
 }
 
 const InputName = (props: IProps) => {
-    const [name, changeName, setName] = useInput(props.value);
+    const [name, changeName, setName] = useInput(props.info.name);
 
     return (
-        <div>
-           <input
-               value={name}
-               onChange={changeName}
-           />
-        </div>
+        <>
+            <input
+                value={name}
+                onChange={changeName}
+            />
+        </>
     )
 }
 

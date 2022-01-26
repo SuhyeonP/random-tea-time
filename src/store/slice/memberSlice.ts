@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import {cafeList, ICafeList, ICafeMenu, ICafeMenuInfo} from "../../cafe_info";
 
-interface IMemberInfo {
+export interface IMemberInfo {
     name: string;
     menu: ICafeMenuInfo;
 }
@@ -15,7 +15,7 @@ const initialState: IMemberState = {
 }
 
 const memberSlice = createSlice({
-    name: 'cafeSlice',
+    name: 'memberSlice',
     initialState,
     reducers: {
         settingMembers(state, action: PayloadAction<IMemberInfo[]>): void {
@@ -37,11 +37,38 @@ const memberSlice = createSlice({
                     mem.menu = randomMenus[Math.floor(Math.random() * randomMenus.length)]
                 }
             });
+        },
+        initialMember(state, action: PayloadAction<string[]>): void {
+            const temp = Array.from({length: action.payload.length}, (v, i) => {
+                return {
+                    name: action.payload[i],
+                    menu: {
+                        name:'',
+                        price:0,
+                        explain:''
+                    }
+                }
+            });
+            state.member = temp;
+
+        },
+        initialMemberCount(state, action: PayloadAction<number>): void {
+            const temp = Array.from({length: action.payload}, (v, i) => {
+                return {
+                    name: '',
+                    menu: {
+                        name: '',
+                        price: 0,
+                        explain: ''
+                    }
+                }
+            })
+            state.member = temp;
         }
     }
 
 });
 
-export const { settingMembers, chooseMemberMenu, chooseRandomMenu } = memberSlice.actions;
+export const { initialMemberCount, settingMembers, chooseMemberMenu, chooseRandomMenu, initialMember } = memberSlice.actions;
 
 export default memberSlice;
