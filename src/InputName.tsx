@@ -52,6 +52,7 @@ const InputName = (props: IProps) => {
                 category !== '' && menus.length > 0 && (
                     <>
                         <select value={menu?.name} onChange={selectMenu}>
+                            <option value=''>select menu</option>
                             {menus.map((item) => (
                                 <option value={item.name} key={item.name}>{item.name}</option>
                             ))}
