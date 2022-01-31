@@ -1,11 +1,7 @@
-import memberSlice from "./slice/memberSlice";
 import {configureStore} from "@reduxjs/toolkit";
-import cafeSlice from "./slice/cafeSlice";
 
 const store = configureStore({
     reducer: {
-        member: memberSlice.reducer,
-        cafe: cafeSlice.reducer
     }
 })
 
