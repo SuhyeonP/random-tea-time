@@ -33,6 +33,10 @@ const InputName = (props: IProps) => {
 
     const selectMenu = useCallback((e) => {
 
+    },[]);
+
+    const addRandomMenu = useCallback(() => {
+
     },[])
 
     return (
@@ -60,6 +64,7 @@ const InputName = (props: IProps) => {
                     </>
                 )
             }
+            <button onClick={addRandomMenu}>random menu</button>
         </>
     )
 }
