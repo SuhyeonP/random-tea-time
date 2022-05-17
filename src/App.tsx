@@ -16,6 +16,7 @@ function App() {
             {members.map((memb) => (
                 <InputName value={memb}/>
             ))}
+            <p>test here</p>
             <button onClick={addMember}>+</button>
         </div>
     );
